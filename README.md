@@ -21,13 +21,12 @@ The Portfolio Performance Tracker is a beginner-level project designed to help u
 #### **2. Stock Portfolio Management**
 - **Description**: Allow the user to add, update, and remove stocks from their portfolio.
 - **Features**:
-    - Add Stock: The user can add stocks to their portfolio by specifying the stock symbol (e.g., AAPL for Apple) and the number of shares purchased.
-    - Remove Stock: The user can remove a stock from their portfolio.
-    - Update Stock: Allow users to update the number of shares of a stock they own.
+    - Buy Stock: The user can buy stocks and add it to their portfolio by specifying the stock symbol (e.g., AAPL for Apple) and the number of shares purchased.
+    - Sell Stock: The user can sell a number of shares of a stock from their portfolio.
     - Display Portfolio: Show a summary of the portfolio, including stock symbols, number of shares owned, purchase price, and the current value of the stock.
     - Track Performance: Display the gains/losses for each stock in the portfolio.
   
-#### **3. Real-Time Stock Data (Optional)**
+#### **3. Real-Time Stock Data**
 - **Description**: Fetch real-time stock data from an API and display the current price of stocks in the portfolio.
 - **Features**:
     - Fetch live stock prices from a free API such as [Alpha Vantage](https://www.alphavantage.co) or [Yahoo Finance API](https://www.yahoofinanceapi.com).
@@ -59,11 +58,11 @@ The Portfolio Performance Tracker is a beginner-level project designed to help u
 
 ### **Technology Stack:**
 - **Programming Language**: C++ (for learning purposes, with standard libraries)
-- **Storage**: Simple file-based storage (CSV or plain text) or SQLite for storing portfolio data.
+- **Storage**: SQLite for storing portfolio data.
 - **API**: Alpha Vantage or Yahoo Finance API (for real-time stock data fetching).
 - **Optional Libraries**: 
     - cURL or another HTTP library for API requests.
-    - SQLite3 library for database management (if using a database).
+    - SQLite3 library for database management.
 
 ---
 
