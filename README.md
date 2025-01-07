@@ -1,7 +1,7 @@
 ### Detailed Specification for Portfolio Performance Tracker
 
 **Project Overview:**
-The Portfolio Performance Tracker is a beginner-level project designed to help users track the performance of their stock portfolio. It will allow users to input their stock purchases and track their portfolio’s value over time. The tracker will provide information like current portfolio value, gains/losses, and the performance of individual stocks. Additionally, the project will allow for a smooth transition to intermediate-level projects by introducing more advanced concepts, such as real-time stock data fetching from an API, user authentication, and basic data analysis.
+The Portfolio Performance Tracker is a beginner-level project designed to help users track the performance of their stock portfolio. It will allow users to input their stock purchases and track their portfolio’s value over time. The tracker will provide information like current portfolio value, gains/losses, and the performance of individual stocks.
 
 ---
 
