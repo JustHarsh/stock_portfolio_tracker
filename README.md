@@ -1,7 +1,7 @@
 ### Detailed Specification for Portfolio Performance Tracker
 
 **Project Overview:**
-The Portfolio Performance Tracker is a beginner-level project designed to help users track the performance of their stock portfolio. It will allow users to input their stock purchases and track their portfolio’s value over time. The tracker will provide information like current portfolio value, gains/losses, and the performance of individual stocks.
+The Portfolio Performance Tracker is a beginner-level project designed to help users track the performance of their stock portfolio. It will allow users to input their stock purchases and track their portfolio's value over time. The tracker will provide information like current portfolio value, gains/losses, and the performance of individual stocks.
 
 ---
 
@@ -30,7 +30,7 @@ The Portfolio Performance Tracker is a beginner-level project designed to help u
 - **Description**: Fetch real-time stock data from an API and display the current price of stocks in the portfolio.
 - **Features**:
     - Fetch live stock prices from a free API such as [Alpha Vantage](https://www.alphavantage.co) or [Yahoo Finance API](https://www.yahoofinanceapi.com).
-    - Update portfolio with real-time stock prices and calculate the portfolio’s current value.
+    - Update portfolio with real-time stock prices and calculate the portfolio's current value.
     - Display the change in stock prices (e.g., daily or overall performance).
 
 #### **4. Portfolio Performance**
@@ -49,7 +49,7 @@ The Portfolio Performance Tracker is a beginner-level project designed to help u
 ---
 
 ### **Non-Functional Requirements:**
-- **Performance**: The program should be responsive, with quick access to the user’s portfolio and stock data.
+- **Performance**: The program should be responsive, with quick access to the user's portfolio and stock data.
 - **Usability**: The program should have a simple text-based interface that is easy to use.
 - **Scalability**: While not a priority for this beginner-level project, it should be structured in a way that can easily be extended to handle larger datasets or integrate more features.
 - **Security**: For the optional authentication system, user passwords should be securely hashed. Data should be stored safely.
