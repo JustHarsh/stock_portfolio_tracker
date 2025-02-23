@@ -85,5 +85,9 @@ int main() {
     } while (!isAuthenticated);
 
     std::cout << "Display trading module...\n";
+    std::cout << "Select an option:\n";
+    std::cout << "1. Buy stock\n2. Sell stock\n"
+                << "3. View Stock (fetch real-time data)\n"
+                << "4. View Portfolio Performance\n5. Exit\n";
     return 0;
 }

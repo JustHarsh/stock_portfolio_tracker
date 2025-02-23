@@ -3,6 +3,7 @@
 
 #include <string>
 
+// TODO: accept a User struct/class instead of taking uname, email, pwd separately.
 class Auth {
 
 private:
@@ -20,6 +21,7 @@ public:
 
     bool login();
     bool signup();
+    std::string getUname() const;
     void greet(const std::string& uname, const std::string& action);
 };
 

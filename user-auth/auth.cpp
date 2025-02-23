@@ -2,9 +2,13 @@
 #include <iostream>
 #include <sqlite3.h>
 
+// TODO: remove unnecessary newlines
+
+// for signup
 Auth::Auth(const std::string& uname, const std::string& email, const std::string& pwd)
     : uname(uname), email(email), pwd(pwd) {}
 
+// for login
 Auth::Auth(const std::string& uname, const std::string& pwd)
     : uname(uname), pwd(pwd) {}
 
@@ -14,7 +18,7 @@ bool Auth::initializeDatabase() const {
     char* errMsg;
 
     if (sqlite3_open("user.db", &db) != SQLITE_OK) {
-        std::cerr << "\nError 500. Unable to open database. " << sqlite3_errmsg(db) << std::endl << std::endl << std::endl << std::endl;
+        std::cerr << "\nError 500. Unable to open database. " << sqlite3_errmsg(db);
         return false;
     }
 
@@ -24,7 +28,7 @@ bool Auth::initializeDatabase() const {
                                  "PWD TEXT NOT NULL);";
 
     if (sqlite3_exec(db, createTableSQL, nullptr, nullptr, &errMsg) != SQLITE_OK) {
-        std::cerr << "\nError creating table: " << errMsg << std::endl << std::endl << std::endl << std::endl;
+        std::cerr << "\nError creating table: " << errMsg << std::endl;
         sqlite3_free(errMsg);
         sqlite3_close(db);
         return false;
@@ -38,12 +42,12 @@ bool Auth::signupUser(const std::string& sql) const {
     sqlite3_stmt* stmt;
 
     if (sqlite3_open("user.db", &db) != SQLITE_OK) {
-        std::cerr << "\nError 500. Unable to open database. " << sqlite3_errmsg(db) << std::endl << std::endl;
+        std::cerr << "\nError 500. Unable to open database. " << sqlite3_errmsg(db) << std::endl;
         return false;
     }
 
     if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
-        std::cerr << "\nError preparing statement: " << sqlite3_errmsg(db) << std::endl << std::endl;
+        std::cerr << "\nError preparing statement: " << sqlite3_errmsg(db) << std::endl;
         sqlite3_close(db);
         return false;
     }
@@ -57,9 +61,9 @@ bool Auth::signupUser(const std::string& sql) const {
     // Execute statement
     if (sqlite3_step(stmt) != SQLITE_DONE) {
         if (sqlite3_extended_errcode(db) == SQLITE_CONSTRAINT_PRIMARYKEY) {
-            std::cerr << "\nError: Username already exists." << std::endl << std::endl;
+            std::cerr << "\nError: Username already exists." << std::endl;
         } else {
-            std::cerr << "\nError executing statement: " << sqlite3_errmsg(db) << std::endl << std::endl;
+            std::cerr << "\nError executing statement: " << sqlite3_errmsg(db) << std::endl;
         }
         sqlite3_finalize(stmt);
         sqlite3_close(db);
@@ -76,12 +80,12 @@ bool Auth::loginUser(const std::string& sql) const {
     sqlite3_stmt* stmt;
 
     if (sqlite3_open("user.db", &db) != SQLITE_OK) {
-        std::cerr << "\nError 500. Unable to open database. " << sqlite3_errmsg(db) << std::endl << std::endl;
+        std::cerr << "\nError 500. Unable to open database. " << sqlite3_errmsg(db) << std::endl;
         return false;
     }
 
     if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
-        std::cerr << "\nError preparing statement: " << sqlite3_errmsg(db) << std::endl << std::endl;
+        std::cerr << "\nError preparing statement: " << sqlite3_errmsg(db) << std::endl;
         sqlite3_close(db);
         return false;
     }
@@ -98,10 +102,10 @@ bool Auth::loginUser(const std::string& sql) const {
             sqlite3_close(db);
             return true; // Authentication successful
         } else {
-            std::cerr << "\nError: Incorrect password." << std::endl << std::endl;
+            std::cerr << "\nError: Incorrect password." << std::endl;
         }
     } else {
-        std::cerr << "\nError: Username does not exist." << std::endl << std::endl;
+        std::cerr << "\nError: Username does not exist." << std::endl;
     }
 
     sqlite3_finalize(stmt);
@@ -126,9 +130,9 @@ bool Auth::authenticate(const std::string& action) const {
 
 void Auth::greet(const std::string& uname, const std::string& action) {
     if (action == "SIGN_UP") {
-        std::cout << "\nWelcome, " << uname << "!" << std::endl << std::endl;
+        std::cout << "\nWelcome, " << uname << "!" << std::endl;
     } else if (action == "LOGIN") {
-        std::cout << "\nWelcome back, " << uname << "!" << std::endl << std::endl;
+        std::cout << "\nWelcome back, " << uname << "!" << std::endl;
     }
 }
 
@@ -139,3 +143,8 @@ bool Auth::signup() {
 bool Auth::login() {
     return authenticate("LOGIN");
 }
+
+std::string Auth::getUname() const {
+    return uname;
+}
+
